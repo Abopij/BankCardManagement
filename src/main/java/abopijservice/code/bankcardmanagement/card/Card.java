@@ -1,10 +1,12 @@
 package abopijservice.code.bankcardmanagement.card;
 
+import abopijservice.code.bankcardmanagement.card.masked.EncryptStringConverter;
 import abopijservice.code.bankcardmanagement.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -28,8 +30,8 @@ public class Card {
     @JoinColumn(name = "user_id")
     private User user;
 
-    // TODO сделать зашифрованным
     @Column(name = "number")
+    @Convert(converter = EncryptStringConverter.class)
     private String number;
 
     @Column(name = "validityDate")

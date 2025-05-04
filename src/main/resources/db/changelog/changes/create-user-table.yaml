@@ -1,0 +1,16 @@
+#databaseChangeLog:
+#  - databaseChangeLog:
+#  - changeSet:
+#      id: 1
+#      author: you
+#      changes:
+#        - createTable:
+#            tableName: users
+#            columns:
+#              - column:
+#                  name: id
+#                  type: BIGINT
+#                  autoIncrement: true
+#                  constraints:
+#                    primaryKey: true
+#
