@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: bank-card-management
+
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://postgres:5432/server
+    username: server
+    password: password
+
+    hikari:
+      leak-detection-threshold: -1
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+server:
+  port: 8765
+
+security:
+  jwt:
+    minutes:
+      live: 720
+
+    key: F2544219AE74B211A443975496C1B0B0F9CEDF6BDEBC0687A889693F5279D5FB
