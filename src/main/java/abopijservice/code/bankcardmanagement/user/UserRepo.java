@@ -12,6 +12,7 @@ import java.util.UUID;
 public interface UserRepo extends JpaRepository<User, UUID>, JpaSpecificationExecutor<User>, PagingAndSortingRepository<User, UUID> {
 
     User getUserByUsername(String username);
+
     Optional<User> findByUsername(String username);
 
     User getUserByEmail(String email);

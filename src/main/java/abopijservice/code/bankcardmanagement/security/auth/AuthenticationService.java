@@ -27,7 +27,7 @@ public class AuthenticationService {
                 passwordEncoder.encode(request.getPassword()),
                 request.getEmail(),
                 request.getRole() != null ? request.getRole() : Role.USER
-                );
+        );
 
         userService.save(user);
 

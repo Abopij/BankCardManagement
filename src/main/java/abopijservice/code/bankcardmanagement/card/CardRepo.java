@@ -1,6 +1,5 @@
 package abopijservice.code.bankcardmanagement.card;
 
-import abopijservice.code.bankcardmanagement.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.PagingAndSortingRepository;

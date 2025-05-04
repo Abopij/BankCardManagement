@@ -70,8 +70,8 @@ public class CardService {
                                 .getName()
                         )
         ) {
-           delete(id);
-           return true;
+            delete(id);
+            return true;
         }
 
         return false;
@@ -96,18 +96,18 @@ public class CardService {
 
     public List<CardDTO> getAllCardsDTOByUser(UUID userID) {
         if (
-            userID != null &&
-            SecurityContextHolder.getContext()
-                    .getAuthentication()
-                    .getAuthorities()
-                    .contains(new SimpleGrantedAuthority("ADMIN"))
+                userID != null &&
+                        SecurityContextHolder.getContext()
+                                .getAuthentication()
+                                .getAuthorities()
+                                .contains(new SimpleGrantedAuthority("ADMIN"))
         ) {
             return cardRepo.getAllByUserId(userID).stream().map(this::convertToDTO).toList();
         }
 
         return cardRepo.getAllByUserUsername(
                 SecurityContextHolder.getContext().getAuthentication().getName()
-            ).stream().map(this::convertToDTO).toList();
+        ).stream().map(this::convertToDTO).toList();
     }
 
 

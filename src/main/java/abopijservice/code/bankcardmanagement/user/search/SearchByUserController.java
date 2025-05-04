@@ -26,11 +26,11 @@ public class SearchByUserController {
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public Page<UserDTO> search(
-                             @RequestParam(required = false) String email,
-                             @RequestParam(required = false) String username,
-                             @RequestParam(required = false, defaultValue = "1") Integer page,
-                             @RequestParam(required = false, defaultValue = "10") Integer count
-                             ) {
+            @RequestParam(required = false) String email,
+            @RequestParam(required = false) String username,
+            @RequestParam(required = false, defaultValue = "1") Integer page,
+            @RequestParam(required = false, defaultValue = "10") Integer count
+    ) {
         if (email != null) {
             return userService.getUsersDTOByEmail(email, page, count);
         }
