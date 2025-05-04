@@ -1,4 +1,4 @@
-package abopijservice.code.bankcardmanagement.auth;
+package abopijservice.code.bankcardmanagement.security;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;

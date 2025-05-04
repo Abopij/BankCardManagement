@@ -1,6 +1,7 @@
-package abopijservice.code.bankcardmanagement.card;
+package abopijservice.code.bankcardmanagement.card.search;
 
-import abopijservice.code.bankcardmanagement.user.User;
+import abopijservice.code.bankcardmanagement.card.Card;
+import abopijservice.code.bankcardmanagement.card.StatusCard;
 import org.springframework.data.jpa.domain.Specification;
 
 public class CardSpecs {

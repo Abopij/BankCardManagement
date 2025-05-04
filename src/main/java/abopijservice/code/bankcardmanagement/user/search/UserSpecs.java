@@ -1,5 +1,6 @@
-package abopijservice.code.bankcardmanagement.user;
+package abopijservice.code.bankcardmanagement.user.search;
 
+import abopijservice.code.bankcardmanagement.user.User;
 import org.springframework.data.jpa.domain.Specification;
 
 public class UserSpecs {

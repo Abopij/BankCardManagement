@@ -1,6 +1,5 @@
 package abopijservice.code.bankcardmanagement.security;
 
-import abopijservice.code.bankcardmanagement.auth.JwtAuthenticationFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,5 +1,7 @@
-package abopijservice.code.bankcardmanagement.card;
+package abopijservice.code.bankcardmanagement.card.transfer;
 
+import abopijservice.code.bankcardmanagement.card.Card;
+import abopijservice.code.bankcardmanagement.card.CardRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

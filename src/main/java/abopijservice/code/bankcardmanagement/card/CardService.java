@@ -1,5 +1,7 @@
 package abopijservice.code.bankcardmanagement.card;
 
+import abopijservice.code.bankcardmanagement.card.search.CardSpecs;
+import abopijservice.code.bankcardmanagement.card.search.MoneyParam;
 import abopijservice.code.bankcardmanagement.user.User;
 import abopijservice.code.bankcardmanagement.user.UserService;
 import lombok.RequiredArgsConstructor;

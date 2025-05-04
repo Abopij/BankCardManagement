@@ -1,5 +1,6 @@
-package abopijservice.code.bankcardmanagement.auth;
+package abopijservice.code.bankcardmanagement.security.auth;
 
+import abopijservice.code.bankcardmanagement.user.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,12 +10,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationRequest {
+public class RegisterRequest {
 
     private String username;
 
-    private String password;
-
     private String email;
 
+    private String password;
+
+    private Role role;
 }

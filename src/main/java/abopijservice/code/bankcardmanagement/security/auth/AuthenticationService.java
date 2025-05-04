@@ -1,5 +1,6 @@
-package abopijservice.code.bankcardmanagement.auth;
+package abopijservice.code.bankcardmanagement.security.auth;
 
+import abopijservice.code.bankcardmanagement.security.JwtService;
 import abopijservice.code.bankcardmanagement.user.Role;
 import abopijservice.code.bankcardmanagement.user.User;
 import abopijservice.code.bankcardmanagement.user.UserService;

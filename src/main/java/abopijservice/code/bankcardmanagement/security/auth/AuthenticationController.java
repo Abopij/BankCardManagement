@@ -1,4 +1,4 @@
-package abopijservice.code.bankcardmanagement.auth;
+package abopijservice.code.bankcardmanagement.security.auth;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

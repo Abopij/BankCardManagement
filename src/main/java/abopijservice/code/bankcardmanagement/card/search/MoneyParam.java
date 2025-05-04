@@ -1,4 +1,4 @@
-package abopijservice.code.bankcardmanagement.card;
+package abopijservice.code.bankcardmanagement.card.search;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

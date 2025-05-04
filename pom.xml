@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>abopijservice.code</groupId>
-    <artifactId>BankCardManagement</artifactId>
+    <artifactId>bankcardmanagement</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>BankCardManagement</name>
     <description>BankCardManagement</description>
@@ -55,7 +55,8 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <scope>provided</scope>
+            <version>1.18.38</version>
+            <optional>true</optional>
         </dependency>
 
         <dependency>

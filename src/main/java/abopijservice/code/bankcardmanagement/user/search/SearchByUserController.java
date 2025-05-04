@@ -1,5 +1,7 @@
-package abopijservice.code.bankcardmanagement.user;
+package abopijservice.code.bankcardmanagement.user.search;
 
+import abopijservice.code.bankcardmanagement.user.UserDTO;
+import abopijservice.code.bankcardmanagement.user.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

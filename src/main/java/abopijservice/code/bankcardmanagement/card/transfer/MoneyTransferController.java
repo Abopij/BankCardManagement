@@ -1,4 +1,4 @@
-package abopijservice.code.bankcardmanagement.card;
+package abopijservice.code.bankcardmanagement.card.transfer;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
