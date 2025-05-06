@@ -2,10 +2,10 @@ spring:
   application:
     name: bank-card-management
 
-  liquibase:
-    enabled: true
-    change-log: classpath:db/changelog/db.changelog-master.yaml
-    contexts: development
+#  liquibase:
+#    enabled: true
+#    change-log: classpath:db/changelog/db.changelog-master.yaml
+#    contexts: development
 
 
   datasource:
@@ -14,11 +14,12 @@ spring:
     username: server
     password: password
 
-    hikari:
-      leak-detection-threshold: -1
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 server:
   port: 8765
 

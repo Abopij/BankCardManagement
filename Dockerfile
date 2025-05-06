@@ -1,6 +1,5 @@
-FROM bellsoft/liberica-openjdk-debian:23
+FROM bellsoft/liberica-openjdk-debian:22
 WORKDIR /app
-COPY ./target/BankCardManagement-0.0.1-SNAPSHOT.jar /app
+COPY ./target/bankcardmanagement-0.0.1-SNAPSHOT.jar /app
 EXPOSE 8765:8765
-ENTRYPOINT ["java","-jar","BankCardManagement-0.0.1-SNAPSHOT.jar"]
-
+ENTRYPOINT ["java","-jar","bankcardmanagement-0.0.1-SNAPSHOT.jar"]
