@@ -12,13 +12,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class CardRequest {
 
-    private StatusCard status;
-
-    private String number;
-
     private LocalDate validityDate;
-
-    private double money;
 
     private UUID userID;
 }

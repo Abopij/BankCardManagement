@@ -1,6 +1,5 @@
 package abopijservice.code.bankcardmanagement.security.auth;
 
-import abopijservice.code.bankcardmanagement.user.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

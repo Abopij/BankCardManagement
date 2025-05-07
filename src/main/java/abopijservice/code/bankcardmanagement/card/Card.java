@@ -29,7 +29,7 @@ public class Card {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "number")
+    @Column(name = "number", unique = true)
     @Convert(converter = EncryptStringConverter.class)
     private String number;
 

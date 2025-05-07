@@ -1,7 +1,6 @@
 package abopijservice.code.bankcardmanagement.security.auth;
 
 import abopijservice.code.bankcardmanagement.security.JwtService;
-import abopijservice.code.bankcardmanagement.user.Role;
 import abopijservice.code.bankcardmanagement.user.User;
 import abopijservice.code.bankcardmanagement.user.UserService;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +22,8 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
-        User user = new User(request.getUsername(),
+        User user = new User(
+                request.getUsername(),
                 passwordEncoder.encode(request.getPassword()),
                 request.getEmail()
         );

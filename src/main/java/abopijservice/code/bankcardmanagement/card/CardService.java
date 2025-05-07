@@ -12,6 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,18 +23,27 @@ public class CardService {
     private final CardRepo cardRepo;
     private final UserService userService;
 
-    public CardDTO saveCard(CardRequest cardRequest, UUID userID) {
+    public CardDTO saveCard(CardRequest cardRequest) {
         User user;
-        if (userID != null && SecurityContextHolder.getContext()
+        if (cardRequest.getUserID() != null && SecurityContextHolder.getContext()
                 .getAuthentication()
                 .getAuthorities()
                 .contains(new SimpleGrantedAuthority("ADMIN"))
         ) {
-            user = userService.getUserByID(userID);
-            save(cardRequest, user);
+            user = userService.getUserByID(cardRequest.getUserID());
+
+            if (cardRequest.getValidityDate() == null) {
+                cardRequest.setValidityDate(
+                        LocalDate.now().plusYears(1)
+                );
+            }
         } else {
             user = userService.getUserByUsername(
                     SecurityContextHolder.getContext().getAuthentication().getName()
+            );
+
+            cardRequest.setValidityDate(
+                    LocalDate.now().plusYears(1)
             );
         }
 
@@ -42,11 +52,11 @@ public class CardService {
 
     private CardDTO save(CardRequest cardRequest, User user) {
         Card card = new Card(
-                cardRequest.getStatus(),
+                StatusCard.ACTIVE,
                 user,
-                cardRequest.getNumber(),
+                CreateVisaNumberService.create(),
                 cardRequest.getValidityDate(),
-                cardRequest.getMoney()
+                0
         );
 
         return convertToDTO(cardRepo.save(card));
@@ -80,10 +90,6 @@ public class CardService {
 
     private void delete(UUID cardId) {
         cardRepo.deleteById(cardId);
-    }
-
-    public void changeStatus(Card card, StatusCard statusCard) {
-        card.setStatus(statusCard);
     }
 
     private Card update(Card card) {

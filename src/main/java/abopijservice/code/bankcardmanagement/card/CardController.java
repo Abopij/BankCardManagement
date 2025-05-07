@@ -27,8 +27,8 @@ public class CardController {
     }
 
     @PostMapping
-    public CardDTO saveCard(@RequestParam CardRequest cardRequest, @RequestParam(required = false) UUID userID) {
-        return cardService.saveCard(cardRequest, userID);
+    public CardDTO saveCard(@RequestBody CardRequest cardRequest) {
+        return cardService.saveCard(cardRequest);
     }
 
     @DeleteMapping

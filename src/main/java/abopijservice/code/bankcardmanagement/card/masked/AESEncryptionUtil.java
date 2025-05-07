@@ -1,20 +1,22 @@
 package abopijservice.code.bankcardmanagement.card.masked;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 
+@Service
 public class AESEncryptionUtil {
 
     @Value("${security.masked.secret}")
-    private static String SECRET;
+    private String SECRET;
 
     @Value("${security.masked.algorithm}")
-    private static String ALGORITHM;
+    private String ALGORITHM;
 
-    public static String encrypt(String value) {
+    public String encrypt(String value) {
         try {
             SecretKeySpec key = new SecretKeySpec(SECRET.getBytes(), ALGORITHM);
             Cipher cipher = Cipher.getInstance(ALGORITHM);
@@ -26,7 +28,7 @@ public class AESEncryptionUtil {
         }
     }
 
-    public static String decrypt(String encrypted) {
+    public String decrypt(String encrypted) {
         try {
             SecretKeySpec key = new SecretKeySpec(SECRET.getBytes(), ALGORITHM);
             Cipher cipher = Cipher.getInstance(ALGORITHM);
