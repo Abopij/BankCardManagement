@@ -117,22 +117,24 @@ public class CardService {
     }
 
 
-    public CardDTO changeStatusCard(UUID cardId, StatusCard statusCard) {
-        Card card = cardRepo.getReferenceById(cardId);
+    public CardDTO changeStatusCard(ChangeStatusCardRequest request) {
+        if (request.getCardID() == null || request.getStatusCard() == null) return null;
+
+        Card card = cardRepo.getReferenceById(request.getCardID());
 
         if (SecurityContextHolder.getContext()
                 .getAuthentication()
                 .getAuthorities()
                 .contains(new SimpleGrantedAuthority("ADMIN"))
         ) {
-            card.setStatus(statusCard);
+            card.setStatus(request.getStatusCard());
             return convertToDTO(update(card));
         }
 
         User user = userService.getUserByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
 
         if (user.getCard().contains(card)) {
-            card.setStatus(statusCard);
+            card.setStatus(request.getStatusCard());
             return convertToDTO(update(card));
         }
 

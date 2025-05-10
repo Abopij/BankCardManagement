@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("api/v1/user/search")
+@RequestMapping("api/v1/users/search")
 @RequiredArgsConstructor
 @Api(value = "/api/v1")
 public class SearchByUserController {

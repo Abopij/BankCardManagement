@@ -38,18 +38,16 @@ public class UserService {
 
     public boolean changeEmail(String username, String email) {
         Authentication principal = SecurityContextHolder.getContext().getAuthentication();
-
-        if (principal.getName().equals(username)) {
-            User user = userRepo.getUserByUsername(username);
-            user.setEmail(email);
-
-            update(user);
-        } else if (principal.getAuthorities().contains(new SimpleGrantedAuthority("ADMIN"))) {
-            User user = userRepo.getUserByUsername(principal.getName());
-            user.setEmail(email);
-
-            update(user);
+        User user;
+        if (principal.getAuthorities().contains(new SimpleGrantedAuthority("ADMIN"))) {
+            user = userRepo.getUserByUsername(username);
+        } else {
+            user = userRepo.getUserByUsername(principal.getName());
         }
+
+        user.setEmail(email);
+
+        update(user);
 
         return true;
     }

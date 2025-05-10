@@ -21,8 +21,8 @@ public class CardController {
     }
 
     @PutMapping("/status")
-    public ResponseEntity<?> changeStatusCard(@RequestParam UUID cardID, @RequestParam StatusCard statusCard) {
-        CardDTO cardDTO = cardService.changeStatusCard(cardID, statusCard);
+    public ResponseEntity<?> changeStatusCard(@RequestBody ChangeStatusCardRequest request) {
+        CardDTO cardDTO = cardService.changeStatusCard(request);
         return cardDTO != null ? ResponseEntity.ok(cardDTO) : ResponseEntity.notFound().build();
     }
 

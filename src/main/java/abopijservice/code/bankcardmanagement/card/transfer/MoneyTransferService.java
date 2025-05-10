@@ -5,17 +5,19 @@ import abopijservice.code.bankcardmanagement.card.CardRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 @Service
 @RequiredArgsConstructor
 public class MoneyTransferService {
 
     private final CardRepo cardRepo;
 
-    public boolean transferMoney(UUID senderId, UUID recipientId, double amount) {
-        Card sender = cardRepo.findById(senderId).orElseThrow();
-        Card recipient = cardRepo.findById(recipientId).orElseThrow();
+    public boolean transferMoney(MoneyTransferRequest moneyTransferRequest) {
+        Card sender = cardRepo.findById(moneyTransferRequest.getIdSenderCard()).orElseThrow();
+        Card recipient = cardRepo.findById(moneyTransferRequest.getIdRecipientCard()).orElseThrow();
+
+        double amount = moneyTransferRequest.getMoney();
+
+        if (amount <= 0) return false;
 
         if (sender.getUser().equals(recipient.getUser())) {
             if ((sender.getMoney() - amount) < 0.0) {
